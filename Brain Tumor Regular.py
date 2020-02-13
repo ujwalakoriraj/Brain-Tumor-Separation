@@ -1,0 +1,16 @@
+import cv2
+test_image=cv2.imread("C:/Users/drkbr/Desktop/Python/Brain Tumor/brain.jpeg",1)
+resized_image=cv2.resize(test_image,(256,256))
+cv2.imshow("Resized",resized_image)
+median=cv2.medianBlur(resized_image,5)
+cv2.imshow("median",median)
+ret,thresh=cv2.threshold(median,195,300,cv2.THRESH_BINARY)
+cv2.imshow("thresholde",thresh)
+blur=cv2.GaussianBlur(thresh,(5,5),0)
+cv2.imshow("blur",blur)
+ret,thresh2=cv2.threshold(blur,253,300,cv2.THRESH_BINARY) #DOUBLE THRESHOLDING
+cv2.imshow("threshold2",thresh2)
+edges=cv2.Canny(thresh,150,150)
+cv2.imshow("Canny Edges",edges)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
