@@ -1,5 +1,5 @@
 import cv2
-test_image=cv2.imread("C:/Users/drkbr/Desktop/Python/Brain Tumor/brain.jpeg",1)
+test_image=cv2.imread("brain.jpeg",1)
 resized_image=cv2.resize(test_image,(256,256))
 cv2.imshow("Resized",resized_image)
 median=cv2.medianBlur(resized_image,5)
